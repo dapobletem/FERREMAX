@@ -1,3 +1,27 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title style="color: black">Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-button fill="clear" (click)="puntoLimpio()">
+      Punto limpio
+    </ion-button>
+    <ion-button fill="clear" (click)="salir()">
+      Cerrar sesión
+    </ion-button>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons style="color: black;" slot="start">
+        <ion-menu-button auto-hide="false"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
 <ion-content>
   <div class="centrar">
       <ion-img class="imge" src="assets/img/old3.png"></ion-img>
@@ -19,5 +43,35 @@
         <div class="icono-imagen-derecho"></div>
       </ion-button>
     </div>
+    <div class="centrar" style="display: flex;">
+      <h1 class="color-text-black" style="margin-left: 10px;margin-right: 85px;">Subir</h1>
+      <h1 class="color-text-black">Buscar</h1>
+    </div>
   </ion-card-content>
+   <!-- Barra de pestañas -->
+   <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home" style="margin-left: 12px;">
+        <ion-icon (click)="home()" name="home" style="font-size: 3em;"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="saved">
+        <ion-icon name="bookmark" style="font-size: 3em;"></ion-icon>
+      </ion-tab-button>
+      <!-- Espacio en blanco -->
+      <ion-tab-button style="flex: 1;"></ion-tab-button>
+      <ion-tab-button tab="notifications">
+        <ion-icon name="notifications" style="font-size: 3em;"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button tab="profile">
+        <ion-icon (click)="perfil()" name="person" style="font-size: 3em;"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+
+    <!-- ion-fab fuera de la barra de pestañas -->
+    <ion-fab vertical="bottom" horizontal="center">
+      <ion-fab-button color="primary" style="margin-bottom: 15px;">
+          <ion-icon style="color: black" name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-tabs>
 </ion-content>

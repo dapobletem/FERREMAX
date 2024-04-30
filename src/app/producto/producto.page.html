@@ -1,6 +1,23 @@
-<ion-header>
-
-</ion-header>
-<ion-content>
-
-</ion-content>
+<ion-app>
+    <ion-menu contentId="main-content">
+      <ion-header>
+        <ion-toolbar style="color: rgb(94, 94, 245);">
+          <ion-title>Menu Content</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content style="color: black"><h1 style="color: black">Hola</h1>
+    
+      </ion-content>
+    </ion-menu>
+    <div class="ion-page" id="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons style="color: black" slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title style="color: black">Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. </ion-content>
+    </div>
+</ion-app>
