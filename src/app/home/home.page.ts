@@ -12,7 +12,7 @@ import { IonicModule } from '@ionic/angular';
 export class HomePage {
   constructor(private router: Router) {}
 
-  goToProductosPage(){
-
+  goProducto(){
+    this.router.navigate(['/producto']);
   }
 }
