@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { MenuController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-producto',
@@ -17,33 +17,25 @@ export class ProductoPage implements OnInit {
   ngOnInit() {
   }
 
-  constructor(private menuCtrl: MenuController) {}
+  constructor(private router: Router) {}
 
-  openFirstMenu() {
-    /**
-     * Open the menu by menu-id
-     * We refer to the menu using an ID
-     * because multiple "start" menus exist.
-     */
-    this.menuCtrl.open('first-menu');
+  goProducto(){
+    this.router.navigate(['/producto']);
   }
 
-  openSecondMenu() {
-    /**
-     * Open the menu by menu-id
-     * We refer to the menu using an ID
-     * because multiple "start" menus exist.
-     */
-    this.menuCtrl.open('second-menu');
+  home(){
+    this.router.navigate(['/home']);
   }
 
-  openEndMenu() {
-    /**
-     * Open the menu by side
-     * We can refer to the menu by side
-     * here because only one "end" menu exists
-     */
-    this.menuCtrl.open('end');
+  perfil(){
+    this.router.navigate(['/perfil']);
+  }
+
+  salir(){
+
+  }
+  puntoLimpio(){
+
   }
 
 }

@@ -17,18 +17,22 @@ export class PerfilPage implements OnInit {
   ngOnInit() {
   }
 
+  goProducto(){
+    this.router.navigate(['/producto']);
+  }
+
   home(){
     this.router.navigate(['/home']);
   }
 
   perfil(){
-    this.router.navigate(['/home']);
+    this.router.navigate(['/perfil']);
   }
 
   salir(){
 
   }
   puntoLimpio(){
-    
+
   }
 }

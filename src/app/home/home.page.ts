@@ -18,11 +18,11 @@ export class HomePage {
   }
 
   home(){
-    this.router.navigate(['/*']);
+    this.router.navigate(['/home']);
   }
 
   perfil(){
-    this.router.navigate(['/perfil-usuario']);
+    this.router.navigate(['/perfil']);
   }
 
   salir(){
