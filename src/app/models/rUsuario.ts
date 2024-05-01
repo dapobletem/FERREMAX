@@ -3,5 +3,6 @@ export class rUsuario {
         public email: string,
         public nombre: string,
         public apellido: string,
+        public password: string,
     ) {}
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, map } from 'rxjs';
 import { rUsuario } from '../models/rUsuario';
+import { userLogin } from '../models/userLogin';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,18 @@ export class UsuarioService {
       map((user) => {
         console.log("Map", user)
         return user
+      }), catchError((err) => {
+        console.log(err)
+        return err;
+      })
+    )
+  }
+
+  getLogin(UserLogin: userLogin): Observable<string | any> {
+    return this._http.get<any>(this.URL_SUPEBASE + "USUARIO?email=eq." + UserLogin.usuario + "&password=eq." + UserLogin.password, { headers: this.supebaseheads }).pipe(
+      map((user) => {
+        console.log("Map", user[0])
+        return user[0]
       }), catchError((err) => {
         console.log(err)
         return err;

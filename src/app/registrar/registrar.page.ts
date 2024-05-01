@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './registrar.page.html',
   styleUrls: ['./registrar.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule] // Asegúrate de que HttpClientModule esté importado aquí
+  imports: [IonicModule, CommonModule, FormsModule]
 })
 export class RegistrarPage implements OnInit {
 
@@ -18,6 +18,7 @@ export class RegistrarPage implements OnInit {
     email: "",
     nombre: "",
     apellido: "",
+    password:"",
   }
 
   constructor(private router: Router, public toastController: ToastController, private navCtrl: NavController, private userService: UsuarioService) { } // Inyecta el servicio UsuarioService aquí
@@ -42,7 +43,7 @@ export class RegistrarPage implements OnInit {
 
         // Redirigir a la página de inicio después de mostrar el mensaje
         setTimeout(() => {
-          console.log("hola")
+          console.log("exito")
           this.navCtrl.navigateRoot('/home');
         }, 3200); // Esperar un poco más que la duración del toast para garantizar que el usuario vea el mensaje
       },
