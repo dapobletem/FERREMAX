@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule,],
 })
 export class HomePage {
-  constructor(private router: Router) {
+  constructor(private router: Router, private navCtrl: NavController) {
   }
 
   goProducto(){
@@ -26,9 +27,19 @@ export class HomePage {
   }
 
   salir(){
+    this.router.navigate(['/portada']);
 
   }
   puntoLimpio(){
 
+  }
+  goSubirfoto() {
+    // Aquí puedes agregar la lógica para navegar a la página de subir foto
+    // Por ejemplo:
+    this.router.navigate(['/sfoto']);
+  }
+
+  goBack() {
+    this.navCtrl.back();
   }
 }

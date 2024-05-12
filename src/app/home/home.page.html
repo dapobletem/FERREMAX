@@ -1,45 +1,55 @@
+
 <ion-menu contentId="main-content">
+  
   <ion-header>
+    
     <ion-toolbar>
       <ion-title style="color: black">Menu</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
-    <ion-button fill="clear" (click)="puntoLimpio()">
-      Punto limpio
+    <div class="vertical-buttons">
+    <ion-button fill="clear" (click)="salir()">
+      Novedades
     </ion-button>
     <ion-button fill="clear" (click)="salir()">
-      Cerrar sesión
+      Preguntas frecuentes
     </ion-button>
+    <ion-button fill="clear" (click)="salir()">
+      Contacto
+    </ion-button>
+    
+  </div>
   </ion-content>
 </ion-menu>
+
 <div class="ion-page" id="main-content">
     <ion-header>
       <ion-toolbar>
         <ion-buttons style="color: black;" slot="start">
           <ion-menu-button auto-hide="false"></ion-menu-button>
         </ion-buttons>
-        <ion-title>Menu</ion-title>
+        <ion-buttons slot="start">
+          <ion-back-button (click)="goBack()" text="" color="rgb(165, 17, 233)"></ion-back-button>
+        </ion-buttons>
       </ion-toolbar>
     </ion-header>
   <ion-content>
     <div class="centrar">
-        <ion-img class="imge" src="assets/img/old3.png"></ion-img>
+        <ion-img class="imge" src="assets/img/logof.png"></ion-img>
     </div>
     <ion-card-content>
       <div class="social-btns centrar">
-        <div class="centrar">
-          <ion-img style="width: 120px;" src="assets/img/inter.png" alt=""></ion-img>
+    
+        <div>
+          <p class="centrar" style="color: rgb(6, 62, 45);font-weight: bold;">Construyendo tus proyectos</p>
         </div>
-        <h1 class="color-text-black centrar">¿Qué hacemos hoy?</h1>
-        <p class="centrar" style="color: rgb(15, 74, 202);font-weight: bold;">Encuentra, publica y conecta.</p>
-        <p class="color-text-black" >Descubre objetos cerca de ti para una segunda vida</p>
       </div>
       <div class="centrar" style="display: flex; margin-top: 20px;">
-        <ion-button style="margin-right: 50px;" class="boton-circular" shape="round" >
+        <ion-button style="margin-right: 50px;" class="boton-circular" shape="round" expand="full" style="margin-left: 20px;" (click)="goSubirfoto()" >
           <div class="icono-imagen-izquierdo"></div>
         </ion-button>
-        <ion-button class="boton-circular" shape="round" expand="full" style="margin-left: 20px;" (click)="goProducto()">
+        <ion-button style="margin-right: 50x;" class="boton-circular" shape="round" expand="full" style="margin-left: 70px;" (click)="goProducto()" >
           <div class="icono-imagen-derecho"></div>
         </ion-button>
       </div>
@@ -48,4 +58,6 @@
         <h1 class="color-text-black">Buscar</h1>
       </div>
     </ion-card-content>
+
+   
 </ion-content>

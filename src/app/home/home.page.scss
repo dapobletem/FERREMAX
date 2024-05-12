@@ -54,3 +54,13 @@
   background: url('../../assets/img/up-arrow.png') center/cover no-repeat; /* Ruta a tu imagen */
   border-radius: 50%; /* Hace que el contenedor sea circular */
 }
+
+.vertical-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinea los botones a la izquierda */
+}
+
+ion-buttons ion-back-button {
+  --color: black;
+}

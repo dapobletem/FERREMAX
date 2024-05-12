@@ -1,18 +1,40 @@
 * {
-    --background: #ffffff; /* Cambia el color de fondo aquí */
-  }
+  --background: #ffffff; /* Cambia el color de fondo aquí */
+}
 
 .color-text-black{
-    color: black ;
-    font-family:'Roboto'
+  color: black ;
+  font-family:'Roboto'
 }
 
 ion-menu::part(backdrop) {
-  background-color: rgba(43, 1, 43, 0.5);
+background-color: rgba(43, 1, 43, 0.5);
 }
 
 ion-menu::part(container) {
-  border-radius: 0 20px 20px 0;
+border-radius: 0 20px 20px 0;
 
-  box-shadow: 4px 0px 16px rgba(94, 94, 94, 0.18);
+box-shadow: 4px 0px 16px rgba(94, 94, 94, 0.18);
+}
+
+.vertical-buttons {
+display: flex;
+flex-direction: column;
+align-items: flex-start; /* Alinea los botones a la izquierda */
+}
+
+.transparent-border {
+border: 2px solid transparent; /* Establece el borde transparente */
+border-color: rgb(255, 255, 255);
+border-radius: 10px; /* Opcional: Agrega bordes redondeados */
+box-shadow: 2px 2px 4px rgba(122, 122, 122, 0.5);
+}
+
+.color{
+--ion-background-color: #ff0000; /* Cambia este valor al color de fondo que desees */
+}
+
+
+ion-buttons ion-back-button {
+--color: black;
 }
