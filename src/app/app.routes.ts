@@ -25,7 +25,11 @@ export const routes: Routes = [
   {
     path: 'sfoto',
     loadComponent: () => import('./sfoto/sfoto.page').then( m => m.SfotoPage)
+  },  {
+    path: 'detalle-producto',
+    loadComponent: () => import('./detalle-producto/detalle-producto.page').then( m => m.DetalleProductoPage)
   },
+
  
 
 

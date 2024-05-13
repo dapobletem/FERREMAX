@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>detalle_producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="12" size-md="6" size-lg="4" >
+      <ion-card class="carta">
+        <ion-card-header>
+          <img [src]="'http://localhost:5000/foto/' + det_producto?.imagen" alt="Imagen" style="max-width: 100%; height: auto;">
+        </ion-card-header>
+        <ion-card-content class="ion-text-wrap">
+          <ion-card-title class="carta-titulo">{{ det_producto?.nombre }}</ion-card-title>
+          Precio: {{det_producto?.precio}} <br>
+          Descripción: {{ det_producto?.descripcion }}
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <div class="centrar">
+    <ion-button>Editar</ion-button>
+    <ion-button (click)="EliminarProducto()">Eliminar</ion-button>
+  </div>
+</ion-content>

@@ -38,3 +38,11 @@ box-shadow: 2px 2px 4px rgba(122, 122, 122, 0.5);
 ion-buttons ion-back-button {
 --color: black;
 }
+
+.carta {
+  height: 450px; /* Puedes ajustar esta altura según tus necesidades */
+}
+
+.carta-contenido {
+  overflow: hidden;
+}
