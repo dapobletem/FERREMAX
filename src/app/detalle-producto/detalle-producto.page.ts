@@ -7,7 +7,7 @@ import { NavController } from '@ionic/angular';
 import { ProductoService } from '../servicios/producto.service';
 import { producto } from '../models/producto';
 import { HttpClient } from '@angular/common/http';
-
+import { DolarService } from '../servicios/dolar.service';
 
 @Component({
   selector: 'app-detalle-producto',
@@ -16,6 +16,7 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
+
 export class DetalleProductoPage implements OnInit {
 
   id:any;
@@ -83,3 +84,4 @@ export class DetalleProductoPage implements OnInit {
     
   }
 }
+

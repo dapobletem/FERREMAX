@@ -9,6 +9,7 @@ import { ProductoService } from '../servicios/producto.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { producto } from '../models/producto';
+import { DolarService } from '../servicios/dolar.service';
 
 @Component({
   selector: 'app-producto',
@@ -18,13 +19,18 @@ import { producto } from '../models/producto';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class ProductoPage implements OnInit {
+  dollarPrice: any; // Declare a new property to store the dollar price
+  precioDolar: any;
+  dollarDate: any;
  
   constructor(private router: Router,
     public actionSheetController: ActionSheetController, 
     private navCtrl: NavController,
     private productService: ProductoService,
-    private http: HttpClient,) {
+    private http: HttpClient,
+    private dolarService: DolarService,) {
     this.imagenProducto = new Observable<Blob>();
+    
   }
 
   producto={
@@ -38,6 +44,8 @@ export class ProductoPage implements OnInit {
 
   ngOnInit() {
     this.getProductos(); // Llamar al método para obtener los productos al inicializar el componente
+    this.getDollarPrice(); // Call the new method to get the dollar price
+    this.precioDolar=this.getDollarPrice;
   }
 
   uploadImage(imageData: FormData) {
@@ -66,6 +74,22 @@ export class ProductoPage implements OnInit {
     } else {
       console.error("ID del producto no definido");
     }
+  }
+
+
+  getDollarPrice() {
+    this.dolarService.getDailyDollar().subscribe(
+      (data: any) => {
+        console.log(data);
+        this.dollarPrice = data.Dolares[0].Valor; // Store the dollar price in the 'dollarPrice' property
+        this.dollarDate = data.Dolares[0].Fecha; // Fecha del valor del dólar
+
+      },
+      (error) => {
+        console.error(error);
+        // Handle errors here
+      }
+    );
   }
 
 
