@@ -50,18 +50,8 @@ Hasta el paso anterior, solo hemos instalado Node y npm. Ahora, instalaremos Ion
 
     - [Descargar Git](https://git-scm.com/downloads)
 
-## Instrucciones para ejecutar el archivo FotoFerremax en Python
 
-### Paso 1: Instalar Python (si no lo tienes instalado)
-
-- Descarga el instalador de Python desde [Python.org](https://www.python.org/downloads/) y sigue las instrucciones de instalación para tu sistema operativo.
-
-### Paso 2: Crear una carpeta
-
-- Crea una carpeta con cualquier nombre.
-- Dentro de la carpeta, abre el terminal (click derecho dentro de la carpeta y selecciona "Abrir terminal").
-
-### Paso 3: Clonar el repositorio
+### Paso 1: Clonar el repositorio
 
 - En la terminal, ejecuta el siguiente comando para clonar el repositorio:
 
