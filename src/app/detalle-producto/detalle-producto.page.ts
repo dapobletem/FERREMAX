@@ -45,40 +45,60 @@ export class DetalleProductoPage implements OnInit {
 
 
 
-  async EliminarProducto(){
-    this.id = this.det_producto?.id_producto
-    this.nombreFoto = this.det_producto?.imagen
-    console.log(this.id)
-    this.productoService.deleteProduct(this.id).subscribe(
-      () => {
-        console.log('Producto eliminado correctamente');
-        this.eliminarFoto(this.nombreFoto)
-        this.router.navigate(['/producto']).then(() => {
-          // Recarga la página solo después de haber navegado a la página de productos
-          window.location.reload();
-        });
-      },
-      (error) => {
-        console.error(error);
-        // Aquí manejar error
-      }
-    );
-
+  async confirmarEliminacion() {
+    const confirmacion = confirm('¿Estás seguro de que quieres eliminar este producto?');
+  
+    if (confirmacion) {
+      await this.EliminarProducto();
+    } else {
+      console.log('Eliminación cancelada');
+      // Aquí puedes manejar la cancelación según sea necesario
+    }
   }
-
-  eliminarFoto(nombreFoto: string) {
-    this.http.delete<any>(`http://localhost:5000/eliminar_foto/${nombreFoto}`).subscribe(
-      (response) => {
-        console.log(response);
-        alert('Foto eliminada correctamente');
-        this.nombreFoto = '';
-      },
-      (error) => {
-        console.error(error);
-        alert('Error al eliminar la foto');
-      }
-    );
+  
+  async EliminarProducto() {
+    this.id = this.det_producto?.id_producto;
+    this.nombreFoto = this.det_producto?.imagen;
+    console.log(this.id);
+  
+    try {
+      // Llamar al servicio para eliminar el producto
+      await this.productoService.deleteProduct(this.id).toPromise();
+      console.log('Producto eliminado correctamente');
+  
+      // Llamar a la función para eliminar la foto
+      await this.eliminarFoto(this.nombreFoto);
+  
+      // Mostrar mensaje de éxito
+      alert('Producto y foto eliminados correctamente');
+  
+      // Navegar a la página de productos y recargar la página
+      this.router.navigate(['/producto']).then(() => {
+        window.location.reload();
+      });
+    } catch (error) {
+      console.error('Error al eliminar producto:', error);
+      alert('Error al eliminar el producto y/o la foto');
+      // Manejar el error según sea necesario
+    }
   }
+  
+  eliminarFoto(nombreFoto: string): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      this.http.delete<any>(`http://localhost:5000/eliminar_foto/${nombreFoto}`).subscribe(
+        (response) => {
+          console.log('Foto eliminada correctamente:', response);
+          resolve();
+        },
+        (error) => {
+          console.error('Error al eliminar la foto:', error);
+          reject(error);
+        }
+      );
+    });
+  }
+  
+  
 
   async EditarProducto(){
     

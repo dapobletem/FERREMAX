@@ -1,62 +1,59 @@
-
 <ion-menu contentId="main-content">
-  
   <ion-header>
-    
     <ion-toolbar>
-      <ion-title style="color: black">Menu</ion-title>
+      <ion-title style="color: black;">Menu</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding">
-    <div class="vertical-buttons">
-    <ion-button fill="clear" (click)="salir()">
-      Novedades
-    </ion-button>
-    <ion-button fill="clear" (click)="salir()">
-      Preguntas frecuentes
-    </ion-button>
-    <ion-button fill="clear" (click)="salir()">
-      Contacto
-    </ion-button>
-    
-  </div>
+  
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="salir()">
+        Novedades
+      </ion-item>
+      <ion-item (click)="salir()">
+        Preguntas frecuentes
+      </ion-item>
+      <ion-item (click)="salir()">
+        Contacto
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-menu>
 
-<div class="ion-page" id="main-content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons style="color: black;" slot="start">
-          <ion-menu-button auto-hide="false"></ion-menu-button>
-        </ion-buttons>
-        <ion-buttons slot="start">
-          <ion-back-button (click)="goBack()" text="" color="rgb(165, 17, 233)"></ion-back-button>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-header>
-  <ion-content>
-    <div class="centrar">
-        <ion-img class="imge" src="assets/img/logof.png"></ion-img>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="goBack()" text="" color="rgb(165, 17, 233)"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="main-content">
+  <div class="centrar">
+    <ion-img class="imge" src="assets/img/logof.png"></ion-img>
+  </div>
+  <ion-card-content>
+    <div class="social-btns centrar">
+      <div>
+        <p class="centrar" style="color: rgb(6, 62, 45); font-weight: bold;">Construyendo tus proyectos</p>
+      </div>
     </div>
-    <ion-card-content>
-      <div class="social-btns centrar">
-        <div>
-          <p class="centrar" style="color: rgb(6, 62, 45);font-weight: bold;">Construyendo tus proyectos</p>
-        </div>
+    <div class="centrar" style="display: flex; margin-top: 20px;">
+      <div style="margin-right: 40px;">
+        <ion-button class="boton-circular" shape="round" expand="full" (click)="goSubirfoto()">
+          <div class="icono-imagen-izquierdo"></div>
+        </ion-button>
+        <h1 class="color-text-black">Subir imagen</h1>
       </div>
-      <div class="centrar"   style="display: flex;margin-top: 20px;">
-        <div style="margin-right: 40px;">
-          <ion-button class="boton-circular" shape="round" expand="full" (click)="goSubirfoto()">
-            <div class="icono-imagen-izquierdo"></div>
-          </ion-button>
-          <h1 class="color-text-black">Subir imagen</h1>
-        </div>
-        <div style="margin-left: 55px;">
-          <ion-button class="boton-circular" shape="round" expand="full" (click)="goProducto()">
-            <div class="icono-imagen-derecho"></div>
-          </ion-button>
-          <h1 class="color-text-black" style="margin-left: 15px;">Buscar</h1>
-        </div>
+      <div style="margin-left: 55px;">
+        <ion-button class="boton-circular" shape="round" expand="full" (click)="goProducto()">
+          <div class="icono-imagen-derecho"></div>
+        </ion-button>
+        <h1 class="color-text-black" style="margin-left: 15px;">Buscar</h1>
       </div>
-    </ion-card-content>   
+    </div>
+  </ion-card-content>
 </ion-content>

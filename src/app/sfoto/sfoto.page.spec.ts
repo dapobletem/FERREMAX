@@ -1,19 +1,27 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SfotoPage } from './sfoto.page';
+import { TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('SfotoPage', () => {
-  let component: SfotoPage;
-  let fixture: ComponentFixture<SfotoPage>;
+  let activatedRoute: ActivatedRoute;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SfotoPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    TestBed.configureTestingModule({
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              params: of({ id: '1' }) // Simula los parámetros que se pasan a través de ActivatedRoute
+            }
+          }
+        }
+      ]
+    });
+    activatedRoute = TestBed.inject(ActivatedRoute);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create the page', () => {
+    expect(activatedRoute.snapshot.params['id']).toEqual('1');
   });
 });
-
-

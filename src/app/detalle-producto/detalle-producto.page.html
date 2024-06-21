@@ -1,12 +1,15 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>detalle_producto</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Detalle Producto</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-row class="ion-justify-content-center">
-    <ion-col size="12" size-md="6" size-lg="4" >
+    <ion-col size="12" size-md="6" size-lg="4">
       <ion-card class="carta">
         <ion-card-header>
           <img [src]="'http://localhost:5000/foto/' + det_producto?.imagen" alt="Imagen" style="max-width: 100%; height: auto;">

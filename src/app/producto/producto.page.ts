@@ -53,16 +53,16 @@ export class ProductoPage implements OnInit {
   }
   
   getProductos() {
-    this.productService.getProduct().subscribe(
-      (data: any[]) => {
-        console.log(data);
-        this.productos = data; // Almacenar los productos en la variable 'productos'
-      },
-      (error) => {
-        console.error(error);
-        // Manejar errores aquí
-      }
-    );
+    this.productService.getProduct()
+      .subscribe(
+        (data: any[]) => {
+          console.log(data)
+          this.productos = data;
+        },
+        error => {
+          console.error('Error al obtener productos:', error);
+        }
+      );
   }
 
   //recibir datos producto

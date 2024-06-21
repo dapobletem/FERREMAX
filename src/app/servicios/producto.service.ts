@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, catchError, map } from 'rxjs';
+import { Observable, catchError, map, throwError } from 'rxjs'; 
 import { producto } from '../models/producto';
 
 @Injectable({
@@ -8,42 +8,33 @@ import { producto } from '../models/producto';
 })
 export class ProductoService {
 
-  URL_SUPEBASE ='https://dfrsqtseebonqtptjjck.supabase.co/rest/v1/';
   constructor(private _http: HttpClient) { }
+  private baseUrl = 'http://localhost:5000';  
 
-  supebaseheads = new HttpHeaders()
-  .set ('apikey', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRmcnNxdHNlZWJvbnF0cHRqamNrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU0MDkyMDIsImV4cCI6MjAzMDk4NTIwMn0.A-bL8uaHjYsLNGw448ffmIC0KV4CmHS2yERlwCI-rao');
-
-  AgregarFoto(product: producto): Observable<string | any> {
-    console.log("HOLAAAAAA",product)
-    return this._http.post<any>(this.URL_SUPEBASE + 'PRODUCTO?', product, { headers: this.supebaseheads }).pipe(
-      map((product) => {
-        console.log('Map', product);
-        return product;
-      }), catchError((err) => {
-        console.log(err);
-        return err;
-      })
-    );
+  agregarProducto(product: producto): Observable<any> {
+    return this._http.post<any>(`${this.baseUrl}/agregar_producto`, product)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
-
 
   getProduct(): Observable<any[]> {
-    return this._http.get<any[]>(this.URL_SUPEBASE + "PRODUCTO?select=*", { headers: this.supebaseheads }).pipe(
-      catchError((error) => {
-        console.log(error);
-        throw error;
-      })
-    );
+    return this._http.get<any[]>(`${this.baseUrl}/obtener_productos`)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
-  deleteProduct(id: number): Observable<any[]> {
-    return this._http.delete<any[]>(this.URL_SUPEBASE + 'PRODUCTO?id_producto=eq.' +  id, { headers: this.supebaseheads }).pipe(
-      catchError((error) => {
-        console.log(error);
-        throw error;
-      })
-    );
+  deleteProduct(id: number): Observable<any> {
+    return this._http.delete<any>(`${this.baseUrl}/eliminar_producto/${id}`)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  private handleError(error: any) {
+    console.error('Error en el servicio:', error);
+    return throwError('Error en el servicio. Por favor, inténtalo de nuevo más tarde.');
   }
 
 

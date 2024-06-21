@@ -6,14 +6,16 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { producto } from '../models/producto';
 import { ProductoService } from '../servicios/producto.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @Component({
+  
   selector: 'app-sfoto',
   templateUrl: './sfoto.page.html',
   styleUrls: ['./sfoto.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule,HttpClientModule]
 })
 export class SfotoPage implements OnInit {  
 
@@ -59,11 +61,8 @@ export class SfotoPage implements OnInit {
   onSubmit(pro: any) {
     if (this.selectedFile) {
       const formData = new FormData();
-
       formData.append('foto', this.selectedFile);
-
       this.http.post<any>('http://localhost:5000/upload', formData).subscribe(
-
         (response) => {
           console.log(response);
           this.presentToast('Imagen subida con éxito');
@@ -72,7 +71,7 @@ export class SfotoPage implements OnInit {
           console.log(this.produc);
 
           // Agregar el producto
-          this.productService.AgregarFoto(pro).subscribe({
+          this.productService.agregarProducto(pro).subscribe({
             next: (response: any) => {
               this.presentToast('Registro exitoso.', 3000);
               setTimeout(() => {
