@@ -51,10 +51,72 @@ Hasta el paso anterior, solo hemos instalado Node y npm. Ahora, instalaremos Ion
     - [Descargar Git](https://git-scm.com/downloads)
 
 
-### Paso 1: Clonar el repositorio
+## Desplegar la aplicación Ferremax de manera local
 
-- En la terminal, ejecuta el siguiente comando para clonar el repositorio:
+Sigue estos pasos para desplegar la aplicación Ferremax en tu entorno local.
 
-    ```sh
-    git clone https://github.com/JonjimenezF/FotoFerremax.git
+### Requisitos previos
+
+Antes de comenzar, asegúrate de tener instalados los siguientes programas:
+
+- [Node.js](https://nodejs.org/)
+- [Git](https://git-scm.com/)
+- [Ionic CLI](https://ionicframework.com/docs/cli)
+
+### Pasos para desplegar la aplicación
+
+#### Paso 1: Crear una carpeta
+
+1. Crea una carpeta con cualquier nombre en tu sistema.
+2. Dentro de la carpeta, abre el terminal (haz clic derecho dentro de la carpeta y selecciona "Abrir terminal").
+
+#### Paso 2: Clonar el repositorio
+
+1. En la terminal, ejecuta el siguiente comando para clonar el repositorio:
+
+    ```bash
+    git clone https://github.com/dapobletem/FERREMAX.git
     ```
+
+#### Paso 3: Ingresar a la carpeta clonada
+
+1. En la terminal, ejecuta el siguiente comando para acceder a la carpeta clonada:
+
+    ```bash
+    cd FERREMAX
+    ```
+
+#### Paso 4: Instalar las dependencias
+
+1. En la terminal, ejecuta el siguiente comando para descargar las dependencias:
+
+    ```bash
+    npm install
+    ```
+
+#### Paso 5: Ejecutar la aplicación
+
+1. En la terminal, ejecuta el siguiente comando para iniciar el servidor local:
+
+    ```bash
+    ionic serve
+    ```
+
+    O bien, puedes usar el comando abreviado:
+
+    ```bash
+    ionic s
+    ```
+
+Ejecutar las pruebas unitarias
+
+Sigue estos pasos para ejecutar las pruebas unitarias de la aplicación:
+
+1. Asegúrate de estar en la carpeta raíz del proyecto `FERREMAX`.
+2. En la terminal, ejecuta el siguiente comando para ejecutar las pruebas unitarias:
+
+    ```bash
+    ng test
+    ```
+
+---
